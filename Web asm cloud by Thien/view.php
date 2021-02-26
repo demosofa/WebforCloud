@@ -53,9 +53,9 @@
 				</tbody>
 			</table>
 			<form method="post" action="server.php" >
-            //newly added field
+
 				<input type="hidden" name="id" value="<?php echo $id; ?>">
-			//modified form fields
+
 				<div class="input-group">
 					<label>PRODUCT</label>
 					<input type="text" name="product" value="<?php echo $product; ?>">
@@ -71,6 +71,12 @@
 				<button class="btn" type="submit" name="Updatedata" style="background: #556B2F;" >Update</button>
 			</form>
 		</div>
+		<button class="btn" onclick="goBack()">Back</button>
+		<script>
+		function goBack() {
+			window.history.go(-1);
+		}
+		</script>
 	</div>
 </body>
 </html>
