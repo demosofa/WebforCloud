@@ -15,7 +15,7 @@ include 'server.php';
 	<?php if(isset($_GET['edit'])){
 		$id = $_GET['edit'];
 		$update = true;
-		$sql = "SELECT * FROM ManageUser WHERE id = '$id'";
+		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
 		$old = pg_fetch_array(exec($sql,1));
 		$manager = $old['manager'];
 		$email = $oldl['email'];
@@ -81,7 +81,7 @@ include 'server.php';
 				</thead>
 				<tbody>
 					<?php
-					$sql = "SELECT * FROM ManageUser";
+					$sql = "SELECT * FROM manageuser";
 					$resultset = exec($sql,1);
 					$index = 1;
 					
