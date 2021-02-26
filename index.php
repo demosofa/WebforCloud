@@ -1,8 +1,8 @@
 <?php
 require 'config.php';
 if(isset($_POST['login'])) {
-	$username = pg_escape_string($_POST["username"]);
-	$pwd = pg_escape_string($_POST["pwd"]);
+	$username = pg_escape_string($_POST['username']);
+	$pwd = pg_escape_string($_POST['pwd']);
 	$sql = "SELECT * FROM manageuser";
 	$resultset = pg_query($conn, $sql);
 	$users = pg_fetch_array($resultset);
