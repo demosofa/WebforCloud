@@ -20,7 +20,7 @@ include 'server.php';
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Password" name="pwd">
             </div>
 
             <input class="button" type="submit" name="login" value="Log In">
