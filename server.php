@@ -93,7 +93,7 @@ if(isset($_POST['login'])) {
 		}
 		else{
 			echo "<script language='javascript'>
-					alert('WRONG INFORMATION')
+					alert('WRONG INFORMATION');
 				</script>";
 			header("location: index.php");
 		}
