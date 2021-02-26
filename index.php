@@ -1,4 +1,31 @@
-
+<?php
+require 'server.php';
+if(isset($_POST['login'])) {
+	$username = pg_escape_string($_POST["username"]);
+	$pwd = pg_escape_string($_POST["pwd"]);
+	$sql = "SELECT * FROM manageuser";
+	$resultset = pg_query($conn, $sql);
+	$users = pg_fetch_array($resultset);
+	foreach($users as $user) {
+		if(($user['username'] === 'admin') && 
+			($user['pwd'] === 'admin')) {
+			$_SESSION['message'] = "Hello admin";
+			header("Location: manage.php");
+		}
+		elseif(($user['username'] === $username) && 
+			($user['pwd'] === $pwd)) {
+			$_SESSION['message'] = "Hello ".$username;
+			header('location: view.php');
+		}
+		else{
+			echo "<script language='javascript'>
+					alert('WRONG INFORMATION');
+				</script>";
+			header("location: index.php");
+		}
+	}	
+}
+?>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
