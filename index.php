@@ -1,4 +1,5 @@
 <?php
+require 'config.php';
 require 'server.php';
 if(isset($_POST['login'])) {
 	$username = pg_escape_string($_POST["username"]);
