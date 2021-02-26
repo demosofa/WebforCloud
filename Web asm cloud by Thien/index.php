@@ -101,6 +101,12 @@ include 'server.php';
 				</tbody>
 			</table>			
 		</div>
+		<button class="btn" onclick="goBack()">Back</button>
+		<script>
+		function goBack() {
+			window.history.go(-1);
+		}
+		</script>
 	</div>
 </body>
 </html>
