@@ -9,12 +9,10 @@ if(isset($_POST['login'])) {
 	foreach($users as $user) {
 		if(($user['username'] === 'admin') && 
 			($user['pwd'] === 'admin')) {
-			$_SESSION['message'] = "Hello admin";
 			header("Location: manage.php");
 		}
 		elseif(($user['username'] === $username) && 
 			($user['pwd'] === $pwd)) {
-			$_SESSION['message'] = "Hello ".$username;
 			header('location: view.php');
 		}
 		else{
