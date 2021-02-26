@@ -33,20 +33,19 @@ include 'server.php';
 	<p id="success"></p>
 		<div class="table-wrapper">
 			<div class="table-title">
-				<div class="row">
-					<div class="col-sm-6">
-						<h2>Manage <b>Users</b></h2>
-					</div>
-				</div>
+				<h1>Manage <b>Users</b></h1>
 			</div>
 			<form method="post" action="server.php" >
             //newly added field
-				<input type="hidden" name="id" value="<?php echo $id; ?>">
 
 			//modified form fields
 				<div class="input-group">
+					<label>ID</label>
+					<input type="text" name="id" value="<?php echo $id; ?>">
+				</div>
+				<div class="input-group">
 					<label>USER</label>
-					<input type="text" name="user" value="<?php echo $user; ?>">
+					<input type="text" name="manager" value="<?php echo $user; ?>">
 				</div>
 				<div class = "input-group">
 					<label>PASSWORK</label>
@@ -72,6 +71,7 @@ include 'server.php';
 				<thead>
 					<tr>
 						<th>No.</th>
+						<th>ID</th>
 						<th>USER</th>
 						<th>PASSWORK</th>
 						<th>EMAIL</th>
@@ -88,6 +88,7 @@ include 'server.php';
 					while($row = pg_fetch_array($resultset)) {
 					echo '<tr>
 							<td>'.($index++).'</td>
+							<td>'.$row['id'].'</td>
 							<td>'.$row['manager'].'</td>
 							<td>'.$row['password'].'</td>
 							<td>'.$row['email'].'</td>
