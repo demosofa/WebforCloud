@@ -1,3 +1,14 @@
+<?php 
+require 'server.php';
+if(isset($_GET['edit'])){
+		$id = $_GET['edit'];
+		$update = true;
+		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
+		$old = pg_fetch_array(pg_query($conn, $sql));
+		$manager = $old['manager'];
+		$email = $oldl['email'];
+		$andress = $old['andress'];
+}?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,15 +20,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<?php if(isset($_GET['edit'])){
-		$id = $_GET['edit'];
-		$update = true;
-		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
-		$old = pg_fetch_array(pg_query($conn, $sql));
-		$manager = $old['manager'];
-		$email = $oldl['email'];
-		$andress = $old['andress'];
-	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
