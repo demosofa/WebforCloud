@@ -1,3 +1,13 @@
+<?php 
+require 'server.php';
+if(isset($_GET['Edit'])){
+		$product = $_GET['Edit'];
+		$sql = "SELECT * FROM storedata WHERE id = '$id' AND product = '$product'";
+		$old = pg_fetch_array(pg_query($conn, $sql));
+		$product = $old['product'];
+		$amount = $oldl['amount'];
+		$profit = $old['profit'];
+}?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,14 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<?php if(isset($_GET['Edit'])){
-		$product = $_GET['Edit'];
-		$sql = "SELECT * FROM storedata WHERE id = '$id' AND product = '$product'";
-		$old = pg_fetch_array(pg_query($conn, $sql));
-		$product = $old['product'];
-		$amount = $oldl['amount'];
-		$profit = $old['profit'];
-	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
