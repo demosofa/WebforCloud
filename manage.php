@@ -16,7 +16,7 @@ include 'server.php';
 		$id = $_GET['edit'];
 		$update = true;
 		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
-		$old = pg_fetch_array(exec($sql,1));
+		$old = pg_fetch_array(pg_query($conn, $sql));
 		$manager = $old['manager'];
 		$email = $oldl['email'];
 		$andress = $old['andress'];
@@ -82,7 +82,7 @@ include 'server.php';
 				<tbody>
 					<?php
 					$sql = "SELECT * FROM manageuser";
-					$resultset = exec($sql,1);
+					$resultset = pg_query($conn, $sql);
 					$index = 1;
 					
 					while($row = pg_fetch_array($resultset)) {
