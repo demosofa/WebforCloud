@@ -9,7 +9,7 @@
 	<?php if(isset($_GET['Edit'])){
 		$product = $_GET['Edit'];
 		$sql = "SELECT * FROM storedata WHERE id = '$id' AND product = '$product'";
-		$old = pg_fetch_array(exec($sql,1));
+		$old = pg_fetch_array(pg_query($conn, $sql));
 		$product = $old['product'];
 		$amount = $oldl['amount'];
 		$profit = $old['profit'];
@@ -37,7 +37,7 @@
 					<?php
 						$id = $_COOKIE['userid']
 						$sql = "SELECT * FROM storedata WHERE id = '$id'";
-						$resultset = exec($sql,1);
+						$resultset = pg_query($conn, $sql);
 						$index = 0;
 				
 						while($row = pg_fetch_array($resultset)) {
