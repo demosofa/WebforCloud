@@ -1,11 +1,12 @@
 <?php
-define('HOST','localhost');
-define('DATABASE' , 'db1656');
-define('USERNAME' , 'root');
-define('PASSWORD' , '');
+define('HOST','ec2-54-87-34-201.compute-1.amazonaws.com');
+define('DATABASE' , 'd7drsbv5bd202n');
+define('USERNAME' , 'epcqrbjgylnpjk');
+define('PASSWORD' , '0ea10e0dd21c9abc5ef0106d7729dd684732a35faa5c850198558e4e2866bbd6');
 
-$name = $email = $andress = "";
-$id = $result = 0;
+$manager = $password = $email = $andress = $product = "";
+$username = $pwd = "";
+$id = $amount = $profit = 0;
 $update = false;
 
 function exec($sql, $choice = null) {
@@ -25,12 +26,13 @@ function exec($sql, $choice = null) {
 
 if(isset($_POST['save'])){
 	// khai bao value and ngan ngua van de postgresql injection
+	$id = $_POST['id'];
 	$manager = pg_escape_string($_POST['manager']);
 	$password = pg_escape_string($_POST['password']);
 	$email = pg_escape_string($_POST['email']);
 	$andress = $_POST['andress'];
 	// run query
-	$sql = "INSERT INTO ManageUser(manager, password, email, andress) VALUES('$manager', '$password', '$email', '$andress')";
+	$sql = "INSERT INTO manageuser(id, manager, password, email, andress) VALUES('$id', '$manager', '$password', '$email', '$andress')";
 	excec($sql);
 	// luu message at server side and toi manage.php page
 	$_SESSION['message'] = "Address saved"; 
@@ -40,9 +42,10 @@ if(isset($_POST['save'])){
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
 	$manager = pg_escape_string($_POST['manager']);
+	$password = pg_escape_string($_POST['password']);
 	$email = pg_escape_string($_POST['email']);
 	$andress = $_POST['andress'];
-	$sql = "UPDATE ManageUser SET id = '$id', manager = '$manager', email = '$email', andress = '$andress'";
+	$sql = "UPDATE manageuser SET manager = '$manager', password = '$password', email = '$email', andress = '$andress' WHERE id = '$id'";
 	exec($sql);
 	$_SESSION['message'] = "Address updated!";
 	header('location: manage.php');
@@ -50,7 +53,7 @@ if(isset($_POST['update'])){
 
 if(isset($_GET['del']){
  	$id = $_GET['del'];
- 	$sql = "DELETE FROM ManageUser WHERE id = $id";
+ 	$sql = "DELETE FROM manageuser WHERE id = $id";
  	exec($sql);
  	$_SESSION['message'] = "Andress deleted";
  	header("location: manage.php");
@@ -68,7 +71,7 @@ if(isset($_POST['Updatedata'])){
 	$product = pg_escape_string($_POST['product']);
 	$amount = $_POST['amount'];
 	$profit = $_POST['profit'];
-	$sql = "UPDATE StoreData SET amount = '$amount', profit = '$profit' WHERE id = '$id' AND product = '$product'";
+	$sql = "UPDATE storedata SET amount = '$amount', profit = '$profit' WHERE id = '$id' AND product = '$product'";
 	exec($sql);
 	$_SESSION['message'] = "Table updated";
  	header("location: view.php");
@@ -76,18 +79,18 @@ if(isset($_POST['Updatedata'])){
 
 if(isset($_POST['login'])) {
 	$username = pg_escape_string($_POST["username"]);
-	$password = pg_escape_string($_POST["password"]);
-	$sql = "SELECT * FROM ManageUser";
+	$pwd = pg_escape_string($_POST["pwd"]);
+	$sql = "SELECT * FROM manageuser";
 	$resultset = exec($sql,1);
 	$users = pg_fetch_array($resultset);
 	foreach($users as $user) {
 		if(($user['username'] === 'admin') && 
-			($user['password'] === 'admin')) {
+			($user['pwd'] === 'admin')) {
 			$_SESSION['message'] = "Hello admin";
 			header("Location: manage.php");
 		}
 		elseif(($user['username'] === $username) && 
-			($user['password'] === $password)) {
+			($user['pwd'] === $pwd)) {
 			$_SESSION['message'] = "Hello ".$username;
 			header('location: view.php');
 		}
