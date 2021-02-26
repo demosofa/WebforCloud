@@ -30,7 +30,7 @@ if(isset($_POST['save'])){
 	$email = pg_escape_string($_POST['email']);
 	$andress = $_POST['andress'];
 	// run query
-	$sql = "Insert into ManageUser(manager, password, email, andress) VALUES('$manager', '$password', '$email', '$andress')";
+	$sql = "INSERT INTO ManageUser(manager, password, email, andress) VALUES('$manager', '$password', '$email', '$andress')";
 	excec($sql);
 	// luu message at server side and toi manage.php page
 	$_SESSION['message'] = "Address saved"; 
@@ -42,7 +42,7 @@ if(isset($_POST['update'])){
 	$manager = pg_escape_string($_POST['manager']);
 	$email = pg_escape_string($_POST['email']);
 	$andress = $_POST['andress'];
-	$sql = "Update ManageUser set id = '$id', manager = '$manager', email = '$email', andress = '$andress'";
+	$sql = "UPDATE ManageUser SET id = '$id', manager = '$manager', email = '$email', andress = '$andress'";
 	exec($sql);
 	$_SESSION['message'] = "Address updated!";
 	header('location: manage.php');
@@ -50,7 +50,7 @@ if(isset($_POST['update'])){
 
 if(isset($_GET['del']){
  	$id = $_GET['del'];
- 	$sql = "Delete FROM ManageUser where id = $id";
+ 	$sql = "DELETE FROM ManageUser WHERE id = $id";
  	exec($sql);
  	$_SESSION['message'] = "Andress deleted";
  	header("location: manage.php");
@@ -68,7 +68,7 @@ if(isset($_POST['Updatedata'])){
 	$product = pg_escape_string($_POST['product']);
 	$amount = $_POST['amount'];
 	$profit = $_POST['profit'];
-	$sql = "Update StoreData set amount = '$amount', profit = '$profit' WHERE id = '$id' AND product = '$product'";
+	$sql = "UPDATE StoreData SET amount = '$amount', profit = '$profit' WHERE id = '$id' AND product = '$product'";
 	exec($sql);
 	$_SESSION['message'] = "Table updated";
  	header("location: view.php");
