@@ -36,7 +36,7 @@ if(isset($_POST['login'])) {
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form action="server.php" method="post">
+    <form method="post">
         <div class="login-box">
             <h1>Login</h1>
             <div class="input-group">
