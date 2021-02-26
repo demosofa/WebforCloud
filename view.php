@@ -1,5 +1,5 @@
-<?php 
-require 'server.php';
+<?php
+require 'config.php';
 if(isset($_GET['Edit'])){
 		$product = $_GET['Edit'];
 		$sql = "SELECT * FROM storedata WHERE id = '$id' AND product = '$product'";
