@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+
 session_start();
 
 $manager = $password = $email = $andress = $product = "";
