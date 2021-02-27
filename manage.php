@@ -28,7 +28,6 @@ if(isset($_GET['edit'])){
 		?>
 	</div>
 	<?php endif ?>
-	<div class="container">
 	<p id="success"></p>
 		<div class="table-wrapper">
 			<div class="table-title">
@@ -107,6 +106,5 @@ if(isset($_GET['edit'])){
 			window.history.go(-1);
 		}
 		</script>
-	</div>
 </body>
 </html>
