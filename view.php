@@ -37,7 +37,7 @@ if(isset($_GET['Edit'])){
 				</thead>
 				<tbody>
 					<?php
-						$id = $_COOKIE['id'];
+						$id = $_GET['view'];
 						$sql = "SELECT * FROM storedata WHERE id = '$id'";
 						$resultset = pg_query($conn, $sql);
 						$index = 0;
