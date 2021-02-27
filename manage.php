@@ -1,5 +1,5 @@
 <?php 
-require 'config.php';
+include ('config.php');
 if(isset($_GET['edit'])){
 		$id = $_GET['edit'];
 		$update = true;
