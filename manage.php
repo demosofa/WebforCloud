@@ -1,5 +1,7 @@
-<?php 
-
+<?php
+ini_set('display_errors',1);
+error_reporting(-1);
+include ('config.php');
 if(isset($_GET['edit'])){
 		$id = $_GET['edit'];
 		$update = true;
