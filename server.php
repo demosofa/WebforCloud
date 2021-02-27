@@ -10,9 +10,9 @@ $update = false;
 if(isset($_POST['save'])){
 	// khai bao value and ngan ngua van de postgresql injection
 	$id = $_POST['id'];
-	$manager = pg_escape_string($_POST['manager']);
-	$password = pg_escape_string($_POST['password']);
-	$email = pg_escape_string($_POST['email']);
+	$manager = $_POST['manager'];
+	$password = $_POST['password'];
+	$email = $_POST['email'];
 	$andress = $_POST['andress'];
 	// run query
 	$sql = "INSERT INTO manageuser(id, manager, password, email, andress) VALUES('$id', '$manager', '$password', '$email', '$andress')";
@@ -24,9 +24,9 @@ if(isset($_POST['save'])){
 
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
-	$manager = pg_escape_string($_POST['manager']);
-	$password = pg_escape_string($_POST['password']);
-	$email = pg_escape_string($_POST['email']);
+	$manager = $_POST['manager'];
+	$password = $_POST['password'];
+	$email = $_POST['email'];
 	$andress = $_POST['andress'];
 	$sql = "UPDATE manageuser SET manager = '$manager', password = '$password', email = '$email', andress = '$andress' WHERE id = '$id'";
 	pg_query($conn, $sql);
@@ -44,7 +44,7 @@ if(isset($_GET['del']){
 
 if(isset($_POST['Updatedata'])){
 	$id = $_POST['Updatedata'];
-	$product = pg_escape_string($_POST['product']);
+	$product = $_POST['product'];
 	$amount = $_POST['amount'];
 	$profit = $_POST['profit'];
 	$sql = "UPDATE storedata SET amount = '$amount', profit = '$profit' WHERE id = '$id' AND product = '$product'";
