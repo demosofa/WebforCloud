@@ -14,7 +14,7 @@ if(isset($_POST['login'])) {
 		elseif(($user['manager'] === $username) && 
 			($user['pwd'] === $pwd)) {
 			$id = $user['id'];
-			header('location: view.php?id='.$id);
+			header('location: view.php?view='.$id);
 		}
 	}
 }
