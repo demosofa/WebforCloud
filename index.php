@@ -11,7 +11,7 @@ if(isset($_POST['login'])) {
 			($pwd === 'admin')) {
 			header('Location: manage.php');
 		}
-		elseif(($user['username'] === $username) && 
+		elseif(($user['manager'] === $username) && 
 			($user['pwd'] === $pwd)) {
 			header('location: view.php');
 		}
