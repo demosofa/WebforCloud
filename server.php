@@ -42,11 +42,6 @@ if(isset($_GET['del']){
  	header("location: manage.php");
 }
 
-if(isset($_GET['view'])){
-	$id = $_GET['view'];
-	header('location: view.php');
-}
-
 if(isset($_POST['Updatedata'])){
 	$id = $_POST['Updatedata'];
 	$product = pg_escape_string($_POST['product']);
