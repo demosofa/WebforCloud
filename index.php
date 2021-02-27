@@ -7,21 +7,19 @@ if(isset($_POST['login'])) {
 	$resultset = pg_query($conn, $sql);
 	$users = pg_fetch_array($resultset);
 	foreach($users as $user) {
-		if(($user['username'] === 'admin') && 
-			($user['pwd'] === 'admin')) {
-			header("Location: manage.php");
+		if(($username === 'admin') && 
+			($pwd === 'admin')) {
+			header('Location: manage.php');
 		}
 		elseif(($user['username'] === $username) && 
 			($user['pwd'] === $pwd)) {
 			header('location: view.php');
 		}
-		else{
-			echo "<script language='javascript'>
-					alert('WRONG INFORMATION');
-				</script>";
-			header("location: index.php");
-		}
-	}	
+	}
+	echo "<script language='javascript'>
+		alert('WRONG INFORMATION');
+		</script>";
+	header('location: index.php');
 }
 ?>    
 <!DOCTYPE html>
