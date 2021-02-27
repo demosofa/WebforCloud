@@ -44,8 +44,6 @@ if(isset($_GET['del']){
 
 if(isset($_GET['view'])){
 	$id = $_GET['view'];
-	// luu user id trong cilent side and toi view.php page
-	$_COOKIE['userid'] = $id;
 	header('location: view.php');
 }
 
