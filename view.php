@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors',1);
+error_reporting(-1);
+
 require 'config.php';
 if(isset($_GET['Edit'])){
 		$product = $_GET['Edit'];
