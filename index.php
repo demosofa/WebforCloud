@@ -16,10 +16,6 @@ if(isset($_POST['login'])) {
 			header('location: view.php');
 		}
 	}
-	echo "<script language='javascript'>
-		alert('WRONG INFORMATION');
-		</script>";
-	header('location: index.php');
 }
 ?>    
 <!DOCTYPE html>
