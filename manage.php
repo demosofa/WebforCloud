@@ -1,4 +1,14 @@
-
+<?php
+include("config.php");
+if(isset($_GET['edit'])){
+		$id = $_GET['edit'];
+		$update = true;
+		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
+		$old = pg_fetch_array(exec($sql,1));
+		$user = $old['manager'];
+		$email = $oldl['email'];
+		$andress = $old['andress'];
+}?>
 
 <!DOCTYPE html>
 <html lang="en">
