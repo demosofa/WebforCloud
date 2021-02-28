@@ -3,7 +3,15 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+include ('config.php');
+if(isset($_GET['edit'])){
+		$id = $_GET['edit'];
+		$update = true;
+		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
+		$old = pg_fetch_array(pg_query($conn, $sql));
+		$manager = $old['manager'];
+		$email = $oldl['email'];
+		$andress = $old['andress'];
 }?>
 
 <!DOCTYPE html>
