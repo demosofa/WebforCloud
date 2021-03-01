@@ -19,7 +19,7 @@ include('config.php');
 			header('Location: manage.php');
 		}
 		else{
-			$sql = "SELECT * FROM manageuser WHERE manager = '$username' AND pwd = '$pwd'";
+			$sql = "SELECT * FROM manageuser WHERE Manager = '$username' AND Pwd = '$pwd'";
 			$user = pg_query($conn, $sql);
 			$nums = pg_num_rows($user);
 			if ($num==0) {
