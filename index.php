@@ -19,10 +19,12 @@ include('config.php');
 			header('Location: manage.php');
 		}
 		else{
-			$sql = "SELECT * FROM manageuser WHERE Manager = '{$username}' AND Pwd = '{$pwd}'";
-			$user = pg_query($conn, $sql);
-			$nums = pg_num_rows($user);
-			if ($num==0) {
+			$query = $connection->prepare("SELECT * FROM manageuser WHERE manager=:username AND pwd=:password");
+        		$query->bindParam("username", $username, PDO::PARAM_STR);
+			$query->bindParam("password", $pwd, PDO::PARAM_STR);
+        		$query->execute();
+			$result = $query->fetch(PDO::FETCH_ASSOC);
+			if (!$result) {
 				echo "tên đăng nhập hoặc mật khẩu không đúng !";
 			}
 			else{
