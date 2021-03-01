@@ -78,6 +78,7 @@ if(isset($_GET['edit'])){
 				</thead>
 				<tbody>
 					<?php
+					include("server.php");
 					$query = $connection->prepare("SELECT * FROM manageuser");
 					$query->execute();
 					$index = 1;
@@ -99,11 +100,5 @@ if(isset($_GET['edit'])){
 				</tbody>
 			</table>			
 		</div>
-		<button class="btn" onclick="goBack()">Back</button>
-		<script>
-		function goBack() {
-			window.history.go(-1);
-		}
-		</script>
 </body>
 </html>
