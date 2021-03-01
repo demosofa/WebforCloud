@@ -23,6 +23,7 @@ if(isset($_POST['save'])){
 	// luu message at server side and toi manage.php page
 	$_SESSION['message'] = "Address saved"; 
 	header("location: manage.php");
+	exit;
 }
 
 if(isset($_POST['update'])){
@@ -42,6 +43,7 @@ if(isset($_POST['update'])){
 	$connection->prepare($sql)->execute($data);
 	$_SESSION['message'] = "Address updated!";
 	header("location: manage.php");
+	exit;
 }
 
 if(isset($_GET['del']){
@@ -50,6 +52,7 @@ if(isset($_GET['del']){
  	$connection->prepare($sql)->execute([$id]);
  	$_SESSION['message'] = "Andress deleted";
  	header("location: manage.php");
+	exit;
 }
 
 if(isset($_POST['Updatedata'])){
@@ -61,6 +64,7 @@ if(isset($_POST['Updatedata'])){
 	$connection->prepare($sql)->execute([$amount, $profit, $id, $product]);
 	$_SESSION['message'] = "Table updated";
  	header("location: view.php");
+	exit;
 }
 
 ?>
