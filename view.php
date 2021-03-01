@@ -50,7 +50,7 @@ include("config.php");
 				
 						$index = 0;
 				
-						while($row = $query->fetch(PDO::FETCH_ASSOC);) {
+						while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 						echo '<tr>
 								<td>'.($index++).'</td>
 								<td>'.$row['product'].'</td>
