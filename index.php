@@ -28,7 +28,7 @@ include('config.php');
 				echo "tên đăng nhập hoặc mật khẩu không đúng !";
 			}
 			else{
-				$id = $user['id'];
+				$id = $result['id'];
 				header('location: view.php?view='.$id);
 			}
 		}
