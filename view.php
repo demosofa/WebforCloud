@@ -1,17 +1,13 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-require 'config.php';
+include("config.php");
 
 if(isset($_GET['Edit'])){
 	global $id;
 	$product = $_GET['Edit'];
-	$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
-	$query->bindParam("product", $product, PDO::PARAM_STR);
-	$query->bindParam("id", $id, PDO::PARAM_INT);
-	$query->execute();
+	$sql = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
+	$sql->bindParam("product", $product, PDO::PARAM_STR);
+	$sql->bindParam("id", $id, PDO::PARAM_INT);
+	$sql->execute();
 	$result = $query->fetch(PDO::FETCH_ASSOC);
 	$product = $result['product'];
 	$amount = $result['amount'];
