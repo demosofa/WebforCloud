@@ -4,7 +4,19 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'config.php';
-if(isset($_POST['login'])) {
+?>    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <?php
+	if(isset($_POST['login'])) {
 	$username = $_POST['username'];
 	$pwd = $_POST['pwd'];
 	if(($username === 'admin') && ($pwd === 'admin')) {
@@ -21,18 +33,7 @@ if(isset($_POST['login'])) {
 			$id = $user['id'];
 			header('location: view.php?view='.$id);
 	}
-}
-?>    
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Page</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
+    }?>
     <form method="post">
         <div class="login-box">
             <h1>Login</h1>
