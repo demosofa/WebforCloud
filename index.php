@@ -47,6 +47,12 @@ include('config.php');
             <input class="button" type="submit" name="login" value="Log In">
         </div>
     </form>
+    <button class="btn" onclick="goBack()">Back</button>
+    <script>
+	function goBack() {
+	window.history.go(-1);
+	}
+    </script>
 </body>
  
 </html>
