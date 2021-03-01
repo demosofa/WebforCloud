@@ -80,12 +80,6 @@ if(isset($_GET['Edit'])){
 				<button class="btn" type="submit" name="Updatedata" style="background: #556B2F;" >Update</button>
 			</form>
 		</div>
-		<button class="btn" onclick="goBack()">Back</button>
-		<script>
-		function goBack() {
-			window.history.go(-1);
-		}
-		</script>
 	</div>
 </body>
 </html>
