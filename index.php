@@ -7,19 +7,19 @@ require 'config.php';
 if(isset($_POST['login'])) {
 	$username = $_POST['username'];
 	$pwd = $_POST['pwd'];
-	$sql = "SELECT * FROM manageuser";
-	$resultset = pg_query($conn, $sql);
-	$users = pg_fetch_array($resultset);
-	foreach($users as $user) {
-		if(($username === 'admin') && 
-			($pwd === 'admin')) {
-			header('Location: manage.php');
+	if(($username === 'admin') && ($pwd === 'admin')) {
+		header('Location: manage.php');
+	}
+	else{
+		$sql = "SELECT * FROM manageuser WHERE manager = '$username' AND pwd = '$pwd'";
+		$user = pg_query($conn, $sql);
+		$nums = pg_num_rows($user);
+		if ($num==0) {
+			echo "tên đăng nhập hoặc mật khẩu không đúng !";
 		}
-		elseif(($user['manager'] == $username) && 
-			($user['pwd'] == $pwd)) {
+		else{
 			$id = $user['id'];
 			header('location: view.php?view='.$id);
-		}
 	}
 }
 ?>    
