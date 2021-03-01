@@ -1,6 +1,15 @@
 <?php
 include("config.php");
-
+if(isset($_GET['edit'])){
+		$id = $_GET['edit'];
+		$update = true;
+		$query = $connection->prepare("SELECT * FROM manageuser WHERE id=:id");
+		$query->bindParam("id", $id, PDO::PARAM_INT);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+		$user = $result['manager'];
+		$email = $result['email'];
+		$andress = $result['andress'];
 }?>
 
 <!DOCTYPE html>
@@ -69,11 +78,11 @@ include("config.php");
 				</thead>
 				<tbody>
 					<?php
-					include("server.php");
 					$query = $connection->prepare("SELECT * FROM manageuser");
 					$query->execute();
 					$index = 1;
 					
+					include("server.php");
 					while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 					echo '<tr>
 							<td>'.($index++).'</td>
