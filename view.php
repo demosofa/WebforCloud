@@ -4,9 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'config.php';
-?>
-<?php $id = $_GET['view']; ?>
-<?php
+
+$id = $_GET['view'];
+
 if(isset($_GET['Edit'])){
 	global $id;
 	$product = $_GET['Edit'];
