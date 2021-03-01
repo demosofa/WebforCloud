@@ -13,23 +13,24 @@ require 'config.php';
 <body>
     <?php
 	if(isset($_POST['login'])) {
-	$username = $_POST['username'];
-	$pwd = $_POST['pwd'];
-	if(($username === 'admin') && ($pwd === 'admin')) {
-		header('Location: manage.php');
-	}
-	else{
-		$sql = "SELECT * FROM manageuser WHERE manager = '$username' AND pwd = '$pwd'";
-		$user = pg_query($conn, $sql);
-		$nums = pg_num_rows($user);
-		if ($num==0) {
-			echo "tên đăng nhập hoặc mật khẩu không đúng !";
+		$username = $_POST['username'];
+		$pwd = $_POST['pwd'];
+		if(($username === 'admin') && ($pwd === 'admin')) {
+			header('Location: manage.php');
 		}
 		else{
-			$id = $user['id'];
-			header('location: view.php?view='.$id);
-	}
-    }?>
+			$sql = "SELECT * FROM manageuser WHERE manager = '$username' AND pwd = '$pwd'";
+			$user = pg_query($conn, $sql);
+			$nums = pg_num_rows($user);
+			if ($num==0) {
+				echo "tên đăng nhập hoặc mật khẩu không đúng !";
+			}
+			else{
+				$id = $user['id'];
+				header('location: view.php?view='.$id);
+			}
+		}
+    	}?>
     <form action= "#" method="post">
         <div class="login-box">
             <h1>Login</h1>
