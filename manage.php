@@ -28,15 +28,12 @@ if(isset($_GET['edit'])){
 		?>
 	</div>
 	<?php endif ?>
-	<p id="success"></p>
 		<div class="table-wrapper">
 			<div class="table-title">
 				<h1>Manage <b>Users</b></h1>
 			</div>
 			<form method="post" action="server.php" >
-            //newly added field
 
-			//modified form fields
 				<div class="input-group">
 					<label>ID</label>
 					<input type="text" name="id" value="<?php echo $id; ?>">
