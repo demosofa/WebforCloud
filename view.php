@@ -4,13 +4,20 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'config.php';
+
+$id = $_GET['view'];
+
 if(isset($_GET['Edit'])){
-		$product = $_GET['Edit'];
-		$sql = "SELECT * FROM storedata WHERE id = '$id' AND product = '$product'";
-		$old = pg_fetch_array(pg_query($conn, $sql));
-		$product = $old['product'];
-		$amount = $oldl['amount'];
-		$profit = $old['profit'];
+	global $id;
+	$product = $_GET['Edit'];
+	$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
+	$query->bindParam("username", $username, PDO::PARAM_STR);
+	$query->bindParam("id", $id, PDO::PARAM_INT);
+	$query->execute();
+	$result = $query->fetch(PDO::FETCH_ASSOC);
+	$product = $result['product'];
+	$amount = $result['amount'];
+	$profit = $result['profit'];
 }?>
 
 <!DOCTYPE html>
@@ -41,12 +48,14 @@ if(isset($_GET['Edit'])){
 				</thead>
 				<tbody>
 					<?php
-						$id = $_GET['view'];
-						$sql = "SELECT * FROM storedata WHERE id = '$id'";
-						$resultset = pg_query($conn, $sql);
+						global $id;
+						$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
+						$query->bindParam("id", $id, PDO::PARAM_INT);
+        					$query->execute();
+				
 						$index = 0;
 				
-						while($row = pg_fetch_array($resultset)) {
+						while($result = $query->fetch(PDO::FETCH_ASSOC);) {
 						echo '<tr>
 								<td>'.($index++).'</td>
 								<td>'.$row['product'].'</td>
