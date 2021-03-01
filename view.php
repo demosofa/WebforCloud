@@ -11,7 +11,7 @@ if(isset($_GET['Edit'])){
 	global $id;
 	$product = $_GET['Edit'];
 	$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
-	$query->bindParam("username", $username, PDO::PARAM_STR);
+	$query->bindParam("product", $product, PDO::PARAM_STR);
 	$query->bindParam("id", $id, PDO::PARAM_INT);
 	$query->execute();
 	$result = $query->fetch(PDO::FETCH_ASSOC);
