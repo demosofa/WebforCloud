@@ -1,18 +1,6 @@
 <?php
 include("config.php");
-
-if(isset($_GET['Edit'])){
-	global $id;
-	$product = $_GET['Edit'];
-	$sql = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
-	$sql->bindParam("product", $product, PDO::PARAM_STR);
-	$sql->bindParam("id", $id, PDO::PARAM_INT);
-	$sql->execute();
-	$result = $query->fetch(PDO::FETCH_ASSOC);
-	$product = $result['product'];
-	$amount = $result['amount'];
-	$profit = $result['profit'];
-}?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +9,19 @@ if(isset($_GET['Edit'])){
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<?php
+	if(isset($_GET['Edit'])){
+		global $id;
+		$product = $_GET['Edit'];
+		$sql = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
+		$sql->bindParam("product", $product, PDO::PARAM_STR);
+		$sql->bindParam("id", $id, PDO::PARAM_INT);
+		$sql->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+		$product = $result['product'];
+		$amount = $result['amount'];
+		$profit = $result['profit'];
+	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
