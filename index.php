@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require 'config.php';
 ?>    
 <!DOCTYPE html>
@@ -34,7 +30,7 @@ require 'config.php';
 			header('location: view.php?view='.$id);
 	}
     }?>
-    <form method="post">
+    <form action= "index.php" method="post">
         <div class="login-box">
             <h1>Login</h1>
             <div class="input-group">
