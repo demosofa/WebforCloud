@@ -3,11 +3,13 @@ include("config.php");
 if(isset($_GET['edit'])){
 		$id = $_GET['edit'];
 		$update = true;
-		$sql = "SELECT * FROM manageuser WHERE id = '$id'";
-		$old = pg_fetch_array(exec($sql,1));
-		$user = $old['manager'];
-		$email = $oldl['email'];
-		$andress = $old['andress'];
+		$query = $connection->prepare("SELECT * FROM manageuser WHERE id=:id");
+		$query->bindParam("id", $id, PDO::PARAM_INT);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+		$user = $result['manager'];
+		$email = $result['email'];
+		$andress = $result['andress'];
 }?>
 
 <!DOCTYPE html>
@@ -76,11 +78,11 @@ if(isset($_GET['edit'])){
 				</thead>
 				<tbody>
 					<?php
-					$sql = "SELECT * FROM manageuser";
-					$resultset = pg_query($conn, $sql);
+					$query = $connection->prepare("SELECT * FROM manageuser");
+					$query->execute();
 					$index = 1;
 					
-					while($row = pg_fetch_array($resultset)) {
+					while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 					echo '<tr>
 							<td>'.($index++).'</td>
 							<td>'.$row['id'].'</td>
