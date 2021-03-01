@@ -1,16 +1,6 @@
 <?php
 include("config.php");
-if(isset($_GET['edit'])){
-		$id = $_GET['edit'];
-		$update = true;
-		$query = $connection->prepare("SELECT * FROM manageuser WHERE id=:id");
-		$query->bindParam("id", $id, PDO::PARAM_INT);
-		$query->execute();
-		$result = $query->fetch(PDO::FETCH_ASSOC);
-		$user = $result['manager'];
-		$email = $result['email'];
-		$andress = $result['andress'];
-}?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +12,18 @@ if(isset($_GET['edit'])){
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<?php
+	if(isset($_GET['edit'])){
+		$id = $_GET['edit'];
+		$update = true;
+		$query = $connection->prepare("SELECT * FROM manageuser WHERE id=:id");
+		$query->bindParam("id", $id, PDO::PARAM_INT);
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+		$user = $result['manager'];
+		$email = $result['email'];
+		$andress = $result['andress'];
+	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
