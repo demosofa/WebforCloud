@@ -5,8 +5,6 @@ error_reporting(E_ALL);
 
 require 'config.php';
 
-$id = $_GET['view'];
-
 if(isset($_GET['Edit'])){
 	global $id;
 	$product = $_GET['Edit'];
@@ -48,7 +46,7 @@ if(isset($_GET['Edit'])){
 				</thead>
 				<tbody>
 					<?php
-						global $id;
+						$id = $_GET['view'];
 						$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
         					$query->execute();
