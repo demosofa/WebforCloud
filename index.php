@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+include('config.php');
 ?>    
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ require 'config.php';
 			}
 		}
     	}?>
-    <form action= "#" method="post">
+    <form method="post">
         <div class="login-box">
             <h1>Login</h1>
             <div class="input-group">
