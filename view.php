@@ -62,7 +62,7 @@ if(isset($_GET['Edit'])){
 								<td><a href="view.php?Edit=<?php echo $row['product']; ?>" class="edit_btn" >Edit</a></td>
 							</tr>';
 						}
-					}?>
+					?>
 				</tbody>
 			</table>
 			<form method="post" action="server.php" >
