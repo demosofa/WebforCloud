@@ -38,7 +38,7 @@ if(isset($_POST['update'])){
     		'email' => $email,
 		'andress'=> $andress,
 	];
-	$sql = "UPDATE manageuser SET manager=:manager, password=:password, email=:email, andress=:andress WHERE id=:id;
+	$sql = "UPDATE manageuser SET manager=:manager, pwd=:password, email=:email, andress=:andress WHERE id=:id;
 	$connection->prepare($sql)->execute($data);
 	$_SESSION['message'] = "Address updated!";
 	header("location: manage.php");
