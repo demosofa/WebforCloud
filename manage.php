@@ -87,7 +87,7 @@ if(isset($_GET['edit'])){
 							<td>'.($index++).'</td>
 							<td>'.$row['id'].'</td>
 							<td>'.$row['manager'].'</td>
-							<td>'.$row['password'].'</td>
+							<td>'.$row['pwd'].'</td>
 							<td>'.$row['email'].'</td>
 							<td>'.$row['andress'].'</td>
 							<td><a href="view.php?view=<?php echo $row['id']; ?>" class="view_btn" >View</a></td>
