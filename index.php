@@ -30,7 +30,7 @@ require 'config.php';
 			header('location: view.php?view='.$id);
 	}
     }?>
-    <form action= "index.php" method="post">
+    <form action= "" method="post">
         <div class="login-box">
             <h1>Login</h1>
             <div class="input-group">
