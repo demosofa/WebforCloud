@@ -49,7 +49,7 @@ if(isset($_GET['Edit'])){
 				
 						$index = 0;
 				
-						while($result = $query->fetch(PDO::FETCH_ASSOC);) {
+						while($row = $query->fetch(PDO::FETCH_ASSOC);) {
 						echo '<tr>
 								<td>'.($index++).'</td>
 								<td>'.$row['product'].'</td>
