@@ -13,13 +13,13 @@ include('config.php');
 <body>
     <?php
 	if(isset($_POST['login'])) {
-		$username = $_POST['username'];
-		$pwd = $_POST['pwd'];
+		$username = pg_escape_string($_POST['username']);
+		$pwd = pg_escape_string($_POST['pwd']);
 		if(($username === 'admin') && ($pwd === 'admin')) {
 			header('Location: manage.php');
 		}
 		else{
-			$sql = "SELECT * FROM manageuser WHERE Manager = '$username' AND Pwd = '$pwd'";
+			$sql = "SELECT * FROM manageuser WHERE Manager = '{$username}' AND Pwd = '{$pwd}'";
 			$user = pg_query($conn, $sql);
 			$nums = pg_num_rows($user);
 			if ($num==0) {
