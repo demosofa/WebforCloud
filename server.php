@@ -1,7 +1,11 @@
 <?php
-
 include("config.php");
+$manager = $password = $email = $andress = $product = "";
+$id = $amount = $profit = 0;
+$update = false;
+?>
 
+<?php
 if(isset($_POST['Updatedata'])){
 	$id = $_POST['Updatedata'];
 	$product = $_POST['product'];
