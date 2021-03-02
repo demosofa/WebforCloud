@@ -2,7 +2,7 @@
 include("config.php");
 session_start();
 
-if(isset($_GET['view']){
+if(isset($_GET['view'])){
 	$id = $_GET['view'];
 }
 else{
@@ -19,7 +19,6 @@ else{
 <body>
 	<?php
 	if(isset($_GET['Edit'])){
-		global $id;
 		$product = $_GET['Edit'];
 		$sql = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
 		$sql->bindParam("product", $product, PDO::PARAM_STR);
