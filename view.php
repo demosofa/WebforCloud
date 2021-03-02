@@ -48,7 +48,7 @@ session_start();
 				<tbody>
 					<?php
 						if(isset($_SESSION['ID'])){
-							$GLOBALS['id'] = $_SESSION['ID'];
+							$id = $_SESSION['ID'];
 						}
 						$query = $connection->prepare("SELECT * FROM storedate WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
