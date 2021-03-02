@@ -43,18 +43,13 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
-						if(isset($_GET['view'])){
-							$id = $_GET['view'];
-						}
-						else{
-							$id = $_SESSION['id'];
-						}
+						$id = $_SESSION['id'];
 						$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
         					$query->execute();
-				
+					?>
+						<?php 
 						$index = 0;
-				
 						while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
 							<tr>
 								<td><?php echo $index++; ?></td>
