@@ -84,7 +84,6 @@ include("config.php");
 					$query->execute();
 					$index = 1;
 					
-					include("server.php");
 					while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 					echo '<tr>
 							<td>'.($index++).'</td>
