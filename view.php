@@ -1,7 +1,6 @@
 <?php
 include("config.php");
-session_start();
-	
+session_start();	
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +22,13 @@ session_start();
 		$amount = $result['amount'];
 		$profit = $result['profit'];
 	}?>
+	<?php
+	if(isset($_SESSION['id'])){
+		$id = $_SESSION['id'];
+		$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
+		$query->bindParam("id", $id, PDO::PARAM_INT);
+		$query->execute();
+	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
@@ -43,12 +49,6 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
-						$id = $_SESSION['id'];
-						$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
-						$query->bindParam("id", $id, PDO::PARAM_INT);
-        					$query->execute();
-					?>
-						<?php 
 						$index = 0;
 						while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
 							<tr>
