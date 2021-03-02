@@ -44,8 +44,8 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
-						if(isset($_GET['id']){
-							$id = $_GET['id'];
+						if(isset($_GET['view']){
+							$id = $_GET['view'];
 						}
 						else{
 							$id = $_SESSION['id'];
