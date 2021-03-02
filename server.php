@@ -8,7 +8,7 @@ $update = false;
 
 if(isset($_GET['view'])){
 	$id = $_GET['view'];
-	$_SESSION['id'] = $id;
+	$_SESSION['ID'] = $id;
 	header("location: view.php");
 	exit;
 }
