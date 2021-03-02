@@ -13,7 +13,7 @@ if(isset($_GET['view'])){
 }
 
 if(isset($_POST['Updatedata'])){
-	$id = $_POST['Updatedata'];
+	$id = $_POST['id'];
 	$product = $_POST['product'];
 	$amount = $_POST['amount'];
 	$profit = $_POST['profit'];
