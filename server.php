@@ -4,6 +4,11 @@ $manager = $password = $email = $andress = $product = "";
 $id = $amount = $profit = 0;
 $update = false;
 
+if(isset($_GET['view'])){
+	$id = $_GET['view'];
+	$_SESSION['id'] = $id;
+	header("location: view.php");
+}
 if(isset($_POST['Updatedata'])){
 	$id = $_POST['Updatedata'];
 	$product = $_POST['product'];
