@@ -6,8 +6,6 @@ include("config.php");
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>User Data</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -27,7 +25,6 @@ include("config.php");
 	<?php 
 	$query = $connection->prepare("SELECT * FROM manageuser");
 	$query->execute();
-	$index = 1;
 	?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
@@ -85,7 +82,7 @@ include("config.php");
 				</thead>
 				<tbody>
 					<?php
-					
+					$index = 1;
 					while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 					echo '<tr>
 							<td>'.($index++).'</td>
