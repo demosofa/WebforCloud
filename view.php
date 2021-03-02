@@ -46,7 +46,10 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
-						$index = 0;
+						$query = $connection->prepare("SELECT * FROM storedate WHERE id=:id");
+						$query->bindParam("id", $id, PDO::PARAM_INT);
+						$query->execute();
+						$index = 1;
 						while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
 							<tr>
 								<td><?php echo $index++; ?></td>
