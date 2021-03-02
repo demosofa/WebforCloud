@@ -85,6 +85,7 @@ include("config.php");
 					$index = 1;
 					while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
 					<tr>
+						<td><?php echo $index++; ?></td>
 						<td><?php echo $row['id']; ?></td>
 						<td><?php echo $row['manager']; ?></td>
 						<td><?php echo $row['pwd']; ?></td>
