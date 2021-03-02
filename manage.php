@@ -91,7 +91,7 @@ session_start();
 						<td><?php echo $row['pwd']; ?></td>
 						<td><?php echo $row['email']; ?></td>
 						<td><?php echo $row['andress']; ?></td>
-						<td><a href="view.php?view=<?php echo $row['id']; ?>" class="view_btn" >View</a></td>
+						<td><a href="server.php?view=<?php echo $row['id']; ?>" class="view_btn" >View</a></td>
 						<td><a href="manage.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
 						<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td>
 					</tr>
