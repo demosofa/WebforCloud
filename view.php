@@ -54,16 +54,15 @@ session_start();
 				
 						$index = 0;
 				
-						while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-						echo '<tr>
-								<td>'.($index++).'</td>
-								<td>'.$row['product'].'</td>
-								<td>'.$row['amount'].'</td>
-								<td>'.$row['profit'].'</td>
-								<td><a href="view.php?Edit=<?php echo $row['product']; ?>" class="edit_btn" >Edit</a></td>
-							</tr>';
-						}
-					?>
+						while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
+						<tr>
+							<td>'.($index++).'</td>
+							<td><?php echo $row['product']; ?></td>
+							<td><?php echo $row['amount']; ?></td>
+							<td><?php echo $row['profit']; ?></td>
+							<td><a href="view.php?Edit=<?php echo $row['product']; ?>" class="edit_btn" >Edit</a></td>
+						</tr>
+						<?php } ?>
 				</tbody>
 			</table>
 			<form method="post" action="server.php" >
