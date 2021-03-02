@@ -15,16 +15,14 @@ session_start();
 	if(isset($_GET['Edit'])){
 		$product = $_GET['Edit'];
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
-		$query->bindParam("product", $product, PDO::PARAM_STR);
+		$query->bindParam("product", $product, PDO::PARAM_INT);
 		$query->bindParam("id", $id, PDO::PARAM_INT);
 		$query->execute();
 		$result = $query->fetch(PDO::FETCH_ASSOC);
 		$product = $result['product'];
 		$amount = $result['amount'];
 		$profit = $result['profit'];
-	}
-	
-	?>
+	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
