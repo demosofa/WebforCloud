@@ -23,11 +23,7 @@ session_start();
 		$amount = $result['amount'];
 		$profit = $result['profit'];
 	}
-	if(isset($_SESSION['ID'])){
-		$id = $_SESSION['ID'];
-		header("location: view.php");
-		exit;
-	}?>
+	?>
 	<div class="table-wrapper">
 		<div class="table-title">
 			<h1>Manage <b>Users</b></h1>
@@ -51,6 +47,9 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
+						if(isset($_SESSION['ID'])){
+							$GLOBALS['id'] = $_SESSION['ID'];
+						}
 						$query = $connection->prepare("SELECT * FROM storedate WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
 						$query->execute();
