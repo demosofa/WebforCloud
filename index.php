@@ -27,7 +27,7 @@ session_start();
 				echo "tên đăng nhập hoặc mật khẩu không đúng !";
 			}
 			else{
-				$_SESSION['id'] = $result['id'];
+				$_SESSION['ID'] = $result['id'];
 				//header('location: view.php?view='.$id);
 				header('location:view.php');
 			}
