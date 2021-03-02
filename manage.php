@@ -98,5 +98,11 @@ include("config.php");
 				</tbody>
 			</table>			
 		</div>
+	<button class="btn" onclick="goBack()">Back</button>
+    	<script>
+	function goBack() {
+	window.history.go(-2);
+	}
+    	</script>
 </body>
 </html>
