@@ -31,7 +31,6 @@ session_start();
 		?>
 	</div>
 	<div class="container">
-	<p id="success"></p>
 		<div class="table-wrapper">
 			<table>
 				<thead>
@@ -57,18 +56,18 @@ session_start();
 						$index = 0;
 				
 						while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
-						<tr>
-							<td><?php echo $index++; ?></td>
-							<td><?php echo $row['product']; ?></td>
-							<td><?php echo $row['amount']; ?></td>
-							<td><?php echo $row['profit']; ?></td>
-							<td><a href="view.php?Edit=<?php echo $row['product']; ?>" class="edit_btn" >Edit</a></td>
-						</tr>
+							<tr>
+								<td><?php echo $index++; ?></td>
+								<td><?php echo $row['product']; ?></td>
+								<td><?php echo $row['amount']; ?></td>
+								<td><?php echo $row['profit']; ?></td>
+								<td><a href="view.php?Edit=<?php echo $row['product']; ?>" class="edit_btn" >Edit</a></td>
+							</tr>
 						<?php } ?>
 				</tbody>
 			</table>
 			<form method="post" action="server.php" >
-            //newly added field
+			//newly added field
 				<input type="hidden" name="id" value="<?php echo $id; ?>">
 			//modified form fields
 				<div class="input-group">
