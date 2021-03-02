@@ -3,9 +3,7 @@ include("config.php");
 $manager = $password = $email = $andress = $product = "";
 $id = $amount = $profit = 0;
 $update = false;
-?>
 
-<?php
 if(isset($_POST['Updatedata'])){
 	$id = $_POST['Updatedata'];
 	$product = $_POST['product'];
@@ -16,8 +14,8 @@ if(isset($_POST['Updatedata'])){
 	$_SESSION['message'] = "Table updated";
  	header("location: view.php");
 	exit;
-}?>
-<?php
+}
+
 if(isset($_POST['save'])){
 	// khai bao value and ngan ngua van de postgresql injection
 	$id = $_POST['id'];
@@ -32,8 +30,8 @@ if(isset($_POST['save'])){
 	$_SESSION['message'] = "Address saved"; 
 	header("location: manage.php");
 	exit;
-}?>
-<?php
+}
+
 if(isset($_POST['update'])){
 	$id = $_POST['id'];
 	$manager = $_POST['manager'];
@@ -47,18 +45,19 @@ if(isset($_POST['update'])){
 		'email' => $email,
 		'andress'=> $andress,
 	];
-	$sql = "UPDATE manageuser SET manager=:manager, pwd=:password, email=:email, andress=:andress WHERE id=:id;
+	$sql = "UPDATE manageuser SET manager=:manager, pwd=:password, email=:email, andress=:andress WHERE id=:id";
 	$connection->prepare($sql)->execute($data);
 	$_SESSION['message'] = "Address updated!";
 	header("location: manage.php");
 	exit;
-}?>
-<?php
-if(isset($_GET['del']){
+}
+
+if(isset($_GET['del'])){
 	$id = $_GET['del'];
 	$sql = "DELETE FROM manageuser WHERE id=?";
 	$connection->prepare($sql)->execute([$id]);
 	$_SESSION['message'] = "Andress deleted";
 	header("location: manage.php");
 	exit;
-}?>
+}
+?>
