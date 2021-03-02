@@ -24,6 +24,11 @@ include("config.php");
 		$email = $result['email'];
 		$andress = $result['andress'];
 	}?>
+	<?php 
+	$query = $connection->prepare("SELECT * FROM manageuser");
+	$query->execute();
+	$index = 1;
+	?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
@@ -80,9 +85,6 @@ include("config.php");
 				</thead>
 				<tbody>
 					<?php
-					$query = $connection->prepare("SELECT * FROM manageuser");
-					$query->execute();
-					$index = 1;
 					
 					while($row = $query->fetch(PDO::FETCH_ASSOC)) {
 					echo '<tr>
