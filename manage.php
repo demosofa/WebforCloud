@@ -2,9 +2,6 @@
 include("config.php");
 session_start();
 
-$manager = $password = $email = $andress = $product = "";
-$id = $amount = $profit = 0;
-$update = false;
 ?>
 
 <!DOCTYPE html>
