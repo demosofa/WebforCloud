@@ -2,7 +2,9 @@
 include("config.php");
 session_start();
 
-
+$manager = $password = $email = $andress = $product = "";
+$id = $amount = $profit = 0;
+$update = false;
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +26,8 @@ session_start();
 		$user = $result['manager'];
 		$email = $result['email'];
 		$andress = $result['andress'];
-	}
-	$manager = $password = $email = $andress = $product = "";
-	$id = $amount = $profit = 0;
-	$update = false;
-
+	}?>
+	<?php
 	if(isset($_POST['save'])){
 		// khai bao value and ngan ngua van de postgresql injection
 		$id = $_POST['id'];
@@ -43,8 +42,8 @@ session_start();
 		$_SESSION['message'] = "Address saved"; 
 		header("location: manage.php");
 		exit;
-		}
-
+	}?>
+	<?php
 	if(isset($_POST['update'])){
 		$id = $_POST['id'];
 		$manager = $_POST['manager'];
@@ -63,8 +62,8 @@ session_start();
 		$_SESSION['message'] = "Address updated!";
 		header("location: manage.php");
 		exit;
-		}
-
+	}?>
+	<?php
 	if(isset($_GET['del']){
 		$id = $_GET['del'];
 		$sql = "DELETE FROM manageuser WHERE id=?";
@@ -72,12 +71,7 @@ session_start();
 		$_SESSION['message'] = "Andress deleted";
 		header("location: manage.php");
 		exit;
-	}
-	?>
-	<?php 
-	$query = $connection->prepare("SELECT * FROM manageuser");
-	$query->execute();
-	?>
+	}?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
@@ -134,6 +128,8 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
+					$query = $connection->prepare("SELECT * FROM manageuser");
+					$query->execute();
 					$index = 1;
 					while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
 					<tr>
