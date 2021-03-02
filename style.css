@@ -84,6 +84,14 @@ form {
     margin: 12px 0;
 }
 
+.view_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    background: #6495ED;
+    color: white;
+    border-radius: 3px;
+}
+
 .edit_btn {
     text-decoration: none;
     padding: 2px 5px;
