@@ -9,6 +9,15 @@ $update = false;
 if(isset($_GET['view'])){
 	$id = $_GET['view'];
 	$_SESSION['ID'] = $id;
+	header("location: server.php");
+	exit;
+}
+
+if(isset($_SESSION['ID'])){
+	$id = $_SESSION['ID'];
+	$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
+	$query->bindParam("id", $id, PDO::PARAM_INT);
+	$query->execute();
 	header("location: view.php");
 	exit;
 }
