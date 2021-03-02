@@ -1,5 +1,6 @@
 <?php
 include('config.php');
+session_start();
 ?>    
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +29,9 @@ include('config.php');
 				echo "tên đăng nhập hoặc mật khẩu không đúng !";
 			}
 			else{
-				$id = $result['id'];
-				header('location: view.php?view='.$id);
+				$_SESSION['id'] = $result['id'];
+				//header('location: view.php?view='.$id);
+				header('location:view.php');
 			}
 		}
     	}?>
