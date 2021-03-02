@@ -24,12 +24,7 @@ session_start();
 		$profit = $result['profit'];
 	}
 	
-	if(isset($_SESSION['ID'])){
-		$id = $_SESSION['ID'];
-		$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
-		$query->bindParam("id", $id, PDO::PARAM_INT);
-		$query->execute();
-	}?>
+	?>
 	<?php if (isset($_SESSION['message'])): ?>
 	<div class="msg">
 		<?php 
