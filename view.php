@@ -48,7 +48,7 @@ session_start();
 				<tbody>
 					<?php
 						$id = $_SESSION['ID'];
-						$query = $connection->prepare("SELECT * FROM storedate WHERE id=:id");
+						$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
 						$query->execute();
 						$index = 1;
