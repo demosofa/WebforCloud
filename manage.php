@@ -83,20 +83,18 @@ include("config.php");
 				<tbody>
 					<?php
 					$index = 1;
-					while($row = $query->fetch(PDO::FETCH_ASSOC)) {
-					echo '<tr>
-							<td>'.($index++).'</td>
-							<td>'.$row['id'].'</td>
-							<td>'.$row['manager'].'</td>
-							<td>'.$row['pwd'].'</td>
-							<td>'.$row['email'].'</td>
-							<td>'.$row['andress'].'</td>
-							<td><a href="view.php?view=<?php echo $row['id']; ?>" class="view_btn" >View</a></td>
-							<td><a href="manage.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
-							<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td>
-						</tr>';
-					}
-					?>
+					while ($row = $query->fetch(PDO::FETCH_ASSOC)) { ?>
+					<tr>
+						<td><?php echo $row['id']; ?></td>
+						<td><?php echo $row['manager']; ?></td>
+						<td><?php echo $row['pwd']; ?></td>
+						<td><?php echo $row['email']; ?></td>
+						<td><?php echo $row['andress']; ?></td>
+						<td><a href="view.php?view=<?php echo $row['id']; ?>" class="view_btn" >View</a></td>
+						<td><a href="manage.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
+						<td><a href="server.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td>
+					</tr>
+					<?php } ?>
 				</tbody>
 			</table>			
 		</div>
