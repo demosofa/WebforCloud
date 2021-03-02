@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +44,7 @@ include("config.php");
 				</thead>
 				<tbody>
 					<?php
-						$id = $_GET['view'];
+						$id = $_SESSION['id'];
 						$query = $connection->prepare("SELECT * FROM storedata WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
         					$query->execute();
