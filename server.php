@@ -8,7 +8,9 @@ if(isset($_GET['view'])){
 	$id = $_GET['view'];
 	$_SESSION['id'] = $id;
 	header("location: view.php");
+	exit;
 }
+
 if(isset($_POST['Updatedata'])){
 	$id = $_POST['Updatedata'];
 	$product = $_POST['product'];
