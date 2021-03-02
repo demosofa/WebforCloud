@@ -23,15 +23,18 @@ session_start();
 		$amount = $result['amount'];
 		$profit = $result['profit'];
 	}?>
-	<?php if (isset($_SESSION['message'])): ?>
-	<div class="msg">
-		<?php 
-			echo $_SESSION['message']; 
-			unset($_SESSION['message']);
-		?>
-	</div>
-	<div class="container">
-		<div class="table-wrapper">
+	<div class="table-wrapper">
+		<div class="table-title">
+			<h1>Manage <b>Users</b></h1>
+		</div>
+		<?php if (isset($_SESSION['message'])): ?>
+		<div class="msg">
+			<?php 
+				echo $_SESSION['message']; 
+				unset($_SESSION['message']);
+			?>
+		</div>
+		<?php endif ?>
 			<table>
 				<thead>
 					<tr>
