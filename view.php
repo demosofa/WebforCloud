@@ -22,6 +22,11 @@ session_start();
 		$product = $result['product'];
 		$amount = $result['amount'];
 		$profit = $result['profit'];
+	}
+	if(isset($_SESSION['ID'])){
+		$id = $_SESSION['ID'];
+		header("location: view.php");
+		exit;
 	}?>
 	<div class="table-wrapper">
 		<div class="table-title">
