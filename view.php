@@ -26,7 +26,7 @@ session_start();
 	?>
 	<div class="table-wrapper">
 		<div class="table-title">
-			<h1>Manage <b>Users</b></h1>
+			<h1>Manage <b>Store</b></h1>
 		</div>
 		<?php if (isset($_SESSION['message'])): ?>
 		<div class="msg">
@@ -47,9 +47,7 @@ session_start();
 				</thead>
 				<tbody>
 					<?php
-						if(isset($_SESSION['ID'])){
-							$id = $_SESSION['ID'];
-						}
+						$id = $_SESSION['ID'];
 						$query = $connection->prepare("SELECT * FROM storedate WHERE id=:id");
 						$query->bindParam("id", $id, PDO::PARAM_INT);
 						$query->execute();
