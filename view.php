@@ -13,6 +13,7 @@ session_start();
 <body>
 	<?php
 	if(isset($_GET['Edit'])){
+		global $id;
 		$product = $_GET['Edit'];
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
 		$query->bindParam("product", $product, PDO::PARAM_INT);
