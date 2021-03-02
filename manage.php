@@ -24,18 +24,18 @@ session_start();
 		$email = $result['email'];
 		$andress = $result['andress'];
 	}?>
-	<?php if (isset($_SESSION['message'])): ?>
-	<div class="msg">
-		<?php 
-			echo $_SESSION['message']; 
-			unset($_SESSION['message']);
-		?>
-	</div>
-	<?php endif ?>
 		<div class="table-wrapper">
 			<div class="table-title">
 				<h1>Manage <b>Users</b></h1>
 			</div>
+			<?php if (isset($_SESSION['message'])): ?>
+			<div class="msg">
+				<?php 
+					echo $_SESSION['message']; 
+					unset($_SESSION['message']);
+				?>
+			</div>
+			<?php endif ?>
 			<form method="post" action="server.php" >
 
 				<div class="input-group">
