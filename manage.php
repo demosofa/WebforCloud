@@ -75,7 +75,7 @@ include("config.php");
 						<th>PASSWORK</th>
 						<th>EMAIL</th>
 						<th>ANDRESS</th>
-						<th>ACTION</th>
+						<th colspan="3">ACTION</th>
 					</tr>
 				</thead>
 				<tbody>
