@@ -13,10 +13,10 @@ session_start();
 	<?php
 	if(isset($_GET['Edit'])){
 		$product = $_GET['Edit'];
-		$sql = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
-		$sql->bindParam("product", $product, PDO::PARAM_STR);
-		$sql->bindParam("id", $id, PDO::PARAM_INT);
-		$sql->execute();
+		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
+		$query->bindParam("product", $product, PDO::PARAM_STR);
+		$query->bindParam("id", $id, PDO::PARAM_INT);
+		$query->execute();
 		$result = $query->fetch(PDO::FETCH_ASSOC);
 		$product = $result['product'];
 		$amount = $result['amount'];
@@ -58,7 +58,7 @@ session_start();
 								<td><?php echo $row['profit']; ?></td>
 								<td><a href="view.php?Edit=<?php echo $row['product']; ?>" class="edit_btn" >Edit</a></td>
 							</tr>
-						<?php } ?>
+					<?php } ?>
 				</tbody>
 			</table>
 			<form method="post" action="server.php" >
