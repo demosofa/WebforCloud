@@ -38,7 +38,7 @@ if(isset($_POST['savedata'])){
 	exit;
 }
 
-if(isset($_GET['delete'])){
+if(isset($_GET['delid'])){
 	$id = $_GET['delid'];
 	$product = $_GET['delproduct'];
 	$sql = "DELETE FROM storedata WHERE id=? AND product=?";
