@@ -4,7 +4,7 @@ session_start();
 
 $manager = $password = $email = $andress = $product = "";
 $id = $amount = $profit = 0;
-$update = false;
+$update = $Update = false;
 
 if(isset($_GET['view'])){
 	$_SESSION['ID'] = $_GET['view'];
