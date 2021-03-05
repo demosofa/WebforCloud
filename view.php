@@ -15,6 +15,7 @@ session_start();
 	if(isset($_GET['id'])){
 		$product = $_GET['product'];
 		$id = $_GET['id'];
+		$update == true;
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
 		$query->bindParam("product", $product, PDO::PARAM_INT);
 		$query->bindParam("id", $id, PDO::PARAM_INT);
