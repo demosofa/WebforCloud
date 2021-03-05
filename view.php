@@ -15,7 +15,7 @@ session_start();
 	if(isset($_GET['id'])){
 		$product = $_GET['product'];
 		$id = $_GET['id'];
-		$update == true;
+		$update = true;
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
 		$query->bindParam("product", $product, PDO::PARAM_INT);
 		$query->bindParam("id", $id, PDO::PARAM_INT);
@@ -60,8 +60,8 @@ session_start();
 								<td><?php echo $row['product']; ?></td>
 								<td><?php echo $row['amount']; ?></td>
 								<td><?php echo $row['profit']; ?></td>
-								<td><a href="view.php?product= <?php echo $row['product']; ?>&id= <?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
-								<td><a href="server.php?delid= <?php echo $row['id']; ?>&delproduct= <?php echo $row['product']; ?>" class="del_btn" >Delete</a></td>
+								<td><a href="view.php?product=<?php echo $row['product']; ?>&id=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
+								<td><a href="server.php?delid=<?php echo $row['id']; ?>&delproduct=<?php echo $row['product']; ?>" class="del_btn" >Delete</a></td>
 							</tr>
 					<?php } ?>
 				</tbody>
