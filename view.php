@@ -13,6 +13,7 @@ session_start();
 <body>
 	<?php
 	if(isset($_GET['id'])){
+		$update == true
 		$product = $_GET['product'];
 		$id = $_GET['id'];
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
@@ -60,6 +61,7 @@ session_start();
 								<td><?php echo $row['amount']; ?></td>
 								<td><?php echo $row['profit']; ?></td>
 								<td><a href="view.php?product=<?php echo $row['product']; ?>&id=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
+								<td><a href="server.php?delid=<?php echo $row['id']; ?>&$product=<?php echo $row['product']; ?>" class="del_btn" >View</a></td>
 							</tr>
 					<?php } ?>
 				</tbody>
@@ -80,9 +82,9 @@ session_start();
 				</div>
 				<div class="input-group">
 					<?php if ($update == true): ?>
-						<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+						<button class="btn" type="submit" name="updatedata" style="background: #556B2F;" >update</button>
 					<?php else: ?>
-						<button class="btn" type="submit" name="save" >Save</button>
+						<button class="btn" type="submit" name="savedata" >Save</button>
 					<?php endif ?>
 				</div>
 			</form>
