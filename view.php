@@ -13,7 +13,7 @@ session_start();
 <body>
 	<?php
 	if(isset($_GET['id'])){
-		$Update == true
+		$Update == true;
 		$product = $_GET['product'];
 		$id = $_GET['id'];
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
