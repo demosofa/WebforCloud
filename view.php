@@ -78,7 +78,13 @@ session_start();
 					<label>PROFIT</label>
 					<input type="text" name="profit" value="<?php echo $profit; ?>">
 				</div>
-				<button class="btn" type="submit" name="Updatedata" style="background: #556B2F;" >Update</button>
+				<div class="input-group">
+					<?php if ($update == true): ?>
+						<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+					<?php else: ?>
+						<button class="btn" type="submit" name="save" >Save</button>
+					<?php endif ?>
+				</div>
 			</form>
 		</div>
 	</div>
