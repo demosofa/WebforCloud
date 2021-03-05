@@ -60,8 +60,8 @@ session_start();
 								<td><?php echo $row['product']; ?></td>
 								<td><?php echo $row['amount']; ?></td>
 								<td><?php echo $row['profit']; ?></td>
-								<td><a href="view.php?product=<?php echo $row['product']; ?>&id=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
-								<td><a href="server.php?delid=<?php echo $row['id']; ?>&$product=<?php echo $row['product']; ?>" class="del_btn" >View</a></td>
+								<td><a href="view.php? product= <?php echo $row['product']; ?> & id=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
+								<td><a href="server.php? delid= <?php echo $row['id']; ?> & $product=<?php echo $row['product']; ?>" class="del_btn" >View</a></td>
 							</tr>
 					<?php } ?>
 				</tbody>
