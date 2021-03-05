@@ -12,15 +12,39 @@ if(isset($_GET['view'])){
 	exit;
 }
 
-if(isset($_POST['Updatedata'])){
+if(isset($_POST['updatedata'])){
 	$id = $_POST['id'];
 	$product = $_POST['product'];
 	$amount = $_POST['amount'];
 	$profit = $_POST['profit'];
 	$sql = "UPDATE storedata SET amount = ?, profit = ? WHERE id = ? AND product = ?";
 	$connection->prepare($sql)->execute([$amount, $profit, $id, $product]);
-	$_SESSION['message'] = "Table updated";
+	$_SESSION['message'] = "Data updated";
  	header("location: view.php");
+	exit;
+}
+if(isset($_POST['savedata'])){
+	// khai bao value and ngan ngua van de postgresql injection
+	$id = $_POST['id'];
+	$product = $_POST['product'];
+	$amount = $_POST['amount'];
+	$profit = $_POST['profit'];
+	// run query
+	$sql = "INSERT INTO storedata(id, product, amount, profit) VALUES(?,?,?,?)";
+	$connection->prepare($sql)->execute([$id, $product, $amount, $profit]);
+	// luu message at server side and toi manage.php page
+	$_SESSION['message'] = "Table saved"; 
+	header("location: view.php");
+	exit;
+}
+
+if(isset($_GET['delete'])){
+	$id = $_GET['delid'];
+	$product = $_GET['delproduct'];
+	$sql = "DELETE FROM storedata WHERE id=? AND product=?";
+	$connection->prepare($sql)->execute([$id, $product]);
+	$_SESSION['message'] = "Data deleted";
+	header("location: view.php");
 	exit;
 }
 
@@ -35,7 +59,7 @@ if(isset($_POST['save'])){
 	$sql = "INSERT INTO manageuser(id, manager, pwd, email, andress) VALUES(?,?,?,?,?)";
 	$connection->prepare($sql)->execute([$id, $manager, $password, $email, $andress]);
 	// luu message at server side and toi manage.php page
-	$_SESSION['message'] = "Address saved"; 
+	$_SESSION['message'] = "Table saved"; 
 	header("location: manage.php");
 	exit;
 }
