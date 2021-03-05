@@ -13,7 +13,7 @@ session_start();
 <body>
 	<?php
 	if(isset($_GET['id'])){
-		$Update == true;
+		$update == true;
 		$product = $_GET['product'];
 		$id = $_GET['id'];
 		$query = $connection->prepare("SELECT * FROM storedata WHERE product=:product AND id=:id");
@@ -81,7 +81,7 @@ session_start();
 					<input type="text" name="profit" value="<?php echo $profit; ?>">
 				</div>
 				<div class="input-group">
-					<?php if ($Update == true): ?>
+					<?php if ($update == true): ?>
 						<button class="btn" type="submit" name="updatedata" style="background: #556B2F;" >update</button>
 					<?php else: ?>
 						<button class="btn" type="submit" name="savedata" >Save</button>
